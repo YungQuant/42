@@ -4,7 +4,8 @@
 
 typedef struct node {
     int data;
-    struct node * next;} t_node;
+    struct node *next;
+    struct node *prev;} t_node;
 
 t_node* makelist()
 {
@@ -16,9 +17,11 @@ t_node* makelist()
     
     head->next = malloc(sizeof(t_node));
     head->next->data = 2;
+    head->next->prev = head;
     
     head->next->next = malloc(sizeof(t_node));
     head->next->next->data = 3;
+    head->next->next->prev = head->next;
 
     head->next->next->next = NULL;
 
@@ -37,17 +40,33 @@ void    printlist(t_node *head)
 t_node*     appendlist(t_node *head, int newd)
 {
     t_node *current = head;
-    while (current){current = current->next;}
+    while (current->next){current = current->next;}
 
     current->next = malloc(sizeof(t_node));
     current->next->data = newd;
+    current->next->prev = current;
     current->next->next = NULL;
     return (head);
 }
 
+void    printrevlist(t_node *head)
+{
+    t_node *current = head;
+
+    while (current->next){current = current->next;};
+
+    while (current->prev){
+        printf("%i\n", current->data);
+        current = current->prev;}
+}
+
 int     main(int argc, char **argv)
 {
-    printlist(appendlist(makelist(), 4));
+    t_node *list = makelist();
+    printf("List:\n"); printlist(list); printf("\n");
+    appendlist(list, 4);
+    printf("Appended List:\n"); printlist(list); printf("\n");
+    printf("Reversed List:\n"); printrevlist(list); printf("\n");    
     return (0);
 }
 
