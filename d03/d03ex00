@@ -1,0 +1,4 @@
+void	ftTEX(int *i)
+{
+	*i = 42;
+}
