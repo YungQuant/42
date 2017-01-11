@@ -1,21 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/01 18:09:04 by dlemp             #+#    #+#             */
-/*   Updated: 2016/11/01 18:09:32 by dlemp            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	while ((*s1 == *s2) && (*s1 != '\0'))
+    int cnt = 0;
+    while ((*s1 == *s2) && (*s1 != '\0'))
 	{
-		s1++;
+        unsigned char *s1c = (unsigned char *)s1;
+        unsigned char *s2c = (unsigned char *)s2;
+        if (*s1c < *s2c)
+            cnt--;
+        if (*s1c > *s2c)
+            cnt++;
+        s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return cnt;
 }

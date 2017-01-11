@@ -1,32 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/01 18:04:54 by dlemp             #+#    #+#             */
-/*   Updated: 2016/11/01 18:07:46 by dlemp            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(const char *big, const char *little)
 {
-	int itf;
-	int istr;
-
-	itf = 0;
-	istr = 0;
-	while (to_find[itf] != '\0')
-	{
-		while (to_find[itf] == str[istr])
-		{
-			istr++;
-			itf++;
-		}
-		if (to_find[itf] == '\0' && str[istr] == '\0')
-			return (str);
-		istr++;
-	}
-	return (str);
+    if (*little == '\0')
+        return (char *)big;
+    int litlen = ft_strlen(little);
+    int biglen = ft_strlen(big);
+    int matchcount = 0;
+    int i = 0;
+    while (i < biglen)
+    {
+        if (big[i] == little[i])
+        {
+            if (matchcount == litlen)
+                return (char *)&big[i - litlen];
+            matchcount++;
+        }
+        i++;
+    }
+    return NULL;
 }

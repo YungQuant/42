@@ -1,53 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 13:22:13 by dlemp             #+#    #+#             */
-/*   Updated: 2016/11/03 15:53:08 by dlemp            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-int		lencount(char *argv)
+char	*ft_strdup(const char *s1)
 {
-	int len;
-
-	len = 0;
-	while (argv[len])
-		len++;
-	return (len);
-}
-
-void	copyto(char *i, char *argv)
-{
-	int count;
-
-	count = 0;
-	while (argv[count] != '\0')
+	char *str;
+	int i = 0;
+	str = (char*)malloc(sizeof(char) * ft_strlen(s1));
+	while (i < (int)ft_strlen(s1))
 	{
-		i[count] = argv[count];
-		count++;
+		str[i] = s1[i];
+		i++;
 	}
+	return str;
 }
 
-char	*ft_strdup(char *argv)
-{
-	char *i;
-	int srcsize;
-
-	srcsize = lencount(argv);
-	i = (char*)malloc(sizeof(char) * (srcsize + 1));
-	copyto(i, argv);
-	return (i);
-}
-
-int		main(int argc, char **argv)
-{
-	ft_strdup(*argv);
-	return (0);
-}

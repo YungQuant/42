@@ -1,9 +1,13 @@
-void	ft_strlen(char *str)
+#include <string.h>
+#include "libft.h"
+
+size_t ft_strlen(const char *str)
 {
-	int n = 0;
-	while(str[n] != 'NULL')
+	size_t n = 0;
+	while(str[n])
 	{
 		n++;
 	}
-	ft_putnbr(n);
+	return n - 1;
 }
+
