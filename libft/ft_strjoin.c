@@ -1,9 +1,12 @@
+#include "libft.h"
+#include <stdlib.h>
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	if (s1 && s2)
 	{
-		int len1 = strlen(s1);
-		int len2 = strlen(s2);
+		int len1 = ft_strlen(s1);
+		int len2 = ft_strlen(s2);
 		int lentot = len1 + len2;
 		char *string = malloc(sizeof(char) * lentot);	
 		int i = 0;

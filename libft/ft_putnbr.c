@@ -1,3 +1,5 @@
+#include "libft.h"
+
 void	ft_putnbr(int nb)
 {
 	if (nb == -2147483648)

@@ -1,5 +1,7 @@
+#include "libft.h"
+
 void	ft_putendl(char const *s)
 {
 	ft_putstr((char*)s);
-	putchar('\n');
+	ft_putchar('\n');
 }

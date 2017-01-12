@@ -1,3 +1,5 @@
+#include <unistd.h>
+
 void	ft_putendl_fd(const char *s, int fd)
 {
 	while (*s)
