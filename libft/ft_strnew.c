@@ -4,6 +4,17 @@
 char *ft_strnew(size_t size)
 {
 	char *p;
-	p = malloc(sizeof(char) * size);
-	return p;
+	if ((p = malloc(sizeof(char) * size + 1)))
+	{
+		int i = 0;
+		while (i < (int)size)
+		{
+			p[i] = 0;
+			i++;
+		}
+		p[size] = '\0';
+		return p;
+	}
+	else
+		return NULL;
 }

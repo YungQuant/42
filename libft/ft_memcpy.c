@@ -1,17 +1,16 @@
 #include <string.h>
 
-void *ft_memcpy(void *restrict dst, const void *src, size_t n)
+void *ft_memcpy(void *s1, const void *s2, size_t n)
 {
-	int i = 0;
 	if (n > 0)
 	{
-		while (i < (int)n)
-		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i++;
-		}
+		char *c1 = (char*)s1;
+		char *c2 = (char*)s2;
+		while (--n)
+			*c1++ = *c2++;;
+		*c1 = *c2;
 	}
-	return dst;
+	return s1;
 }
 
 

@@ -2,5 +2,13 @@
 
 void	ft_strclr(char *s)
 {
-	free(s);
+	int i = 0;
+	if (s)
+	{
+		while (s[i])
+		{
+			s[i] = '\0';
+			i++;
+		}
+	}
 }

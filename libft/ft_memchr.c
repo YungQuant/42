@@ -4,22 +4,16 @@
 void *ft_memchr(const void *s, int c, size_t n)
 {
 	int i = 0;
-	unsigned char *fp;
-	unsigned char ccpy;
-	ccpy = (unsigned char)c;
-	unsigned char *str;
-	str = (unsigned char *)s;
-	while (i < (int)n)
+	if (n > 0)
 	{
-		if (str[i] == ccpy)
-		{	
-			fp = &str[i];
-			return fp;
+		while (i < (int)n)
+		{
+			if (((unsigned char*)s)[i] == (unsigned char)c)
+				return ((char*)&s[i]);
+			i++;
 		}
-		i++;
 	}
-	fp = &str[++i];
-	return fp;
+	return 0;
 }
 
 

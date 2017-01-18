@@ -5,18 +5,20 @@ char	*ft_strstr(const char *big, const char *little)
     if (*little == '\0')
         return (char *)big;
     int litlen = ft_strlen(little);
-    int biglen = ft_strlen(big);
-    int matchcount = 0;
+    if (litlen == 0)
+		return (char *)big;
     int i = 0;
-    while (i < biglen)
+    while (*big)
     {
-        if (big[i] == little[i])
-        {
-            if (matchcount == litlen)
-                return (char *)&big[i - litlen];
-            matchcount++;
-        }
-        i++;
-    }
+        if (*big == little[i])
+			i++;
+		else
+			i = 0;
+    	if (little[i] == '\0')
+			return ((char*)big - i + 1);
+		big++;
+	}
+	if (!big && !little)
+		return (char *)big;
     return NULL;
 }

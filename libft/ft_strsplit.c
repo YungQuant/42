@@ -6,18 +6,26 @@ char	**ft_strsplit(char const *s, char c)
 	int i = 0;
 	int worditer = 0;
 	int wordlen = 0;
+	if (!s)
+		return NULL;
 	int wordcount = ft_wordcount((char *)s, c);
 	char **strings = (char **)malloc(sizeof(char**) * wordcount + 1);
+	if (strings == NULL)
+		return NULL;
+	strings[wordcount] = NULL;
 	while (s[i] == c)
 		i++;
-	while (s[i])
+	while (s[i] != '\0')
 	{
+		if (s[i] == '\0')
+			return NULL;
 		if (s[i] != c && s[i + 1] != c && s[i + 1] != '\0')
 		   wordlen++;
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 		{
 			wordlen++;
-			strings[worditer] = malloc(sizeof(char*) * wordlen + 1);
+			strings[worditer] = malloc(sizeof(char) * wordlen + 1);
+			strings[worditer][wordlen] = '\0';
 			int liter = (i + 1) - wordlen;
 			int lditer = 0;
 			while (liter <= i && lditer <= wordlen)

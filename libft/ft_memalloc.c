@@ -5,6 +5,8 @@ void *ft_memalloc(size_t size)
 {
 	int *p;
 	p = (int *)malloc(sizeof(int *) * size);
+	if (!p)
+		return NULL;
 	int i = 0;
 	int k = 0;
 	while (i < (int)size)

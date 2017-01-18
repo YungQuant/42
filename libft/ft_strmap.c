@@ -3,12 +3,19 @@
 
 char 	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i = 0;
-	char *newstr = malloc(sizeof(char) * ft_strlen((char *)s));
-	while (s[i])
+	if (s)
 	{
-		newstr[i] = (*f)(s[i]);
-		i++;
+		int i = ft_strlen(s);
+		char *newstr= ft_strnew(i);
+		if (!newstr)
+			return NULL;
+		i = 0;
+		while (*s)
+		{
+			newstr[i] = f(*s++);
+			i++;
+		}
+		return newstr;
 	}
-	return newstr;
+	return NULL;
 }
