@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/18 12:43:45 by dlemp             #+#    #+#             */
+/*   Updated: 2017/01/22 19:29:01 by dlemp            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-    char *sp = (char *)s;
-	size_t len = ft_strlen(s);
-    int i = 0;
-    char cp = (char)c;
-    while (i < (int)len)
-    {
-        if (sp[i] == cp)
-            return &sp[i];
-        i++;
-    }
-    return NULL;
+	while (*s)
+	{
+		if (*s == c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == c)
+		return ((char *)s);
+	return (NULL);
 }

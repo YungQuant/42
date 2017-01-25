@@ -6,7 +6,7 @@
 #    By: dlemp <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 15:41:22 by dlemp             #+#    #+#              #
-#    Updated: 2017/01/11 16:15:41 by dlemp            ###   ########.fr        #
+#    Updated: 2017/01/23 13:06:29 by dlemp            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,3 +46,4 @@ fclean: clean
 		echo "\033[32mCleaned up compiled files.\033[0m"
 
 re: fclean all
+	make

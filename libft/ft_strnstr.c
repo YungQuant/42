@@ -1,22 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/18 13:11:52 by dlemp             #+#    #+#             */
+/*   Updated: 2017/01/22 22:12:02 by dlemp            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    if (*little == '\0')
-        return (char *)big;
-    if (!big && !little)
-		return (char *)big;
-	int litlen = ft_strlen(little);
-	if (litlen < 1)
-		return (char *)big;
-    int i = 0;
-    char *c1 = (char *)big;
-	char *c2 = (char *)little;
-	while (c1[i] && (i + litlen) <= (int)len)
-	{
-		if (ft_strncmp(c1 + i, c2, litlen) == 0)
-			return c1 + i;
-		i++;
-	}
-    return NULL;
+	if (!(*little))
+		return ((char *)big);
+	if (!(*big) || len == 0)
+		return (NULL);
+	if ((*little) == (*big))
+		if (ft_strnstr(big + 1, little + 1, len - 1) - 1 == big)
+			return ((char *)big);
+	return (ft_strnstr(big + 1, little, len - 1));
 }

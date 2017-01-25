@@ -1,16 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/18 12:54:28 by dlemp             #+#    #+#             */
+/*   Updated: 2017/01/18 14:40:25 by dlemp            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
-void *ft_memcpy(void *s1, const void *s2, size_t n)
+void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
+	char *c1;
+	char *c2;
+
 	if (n > 0)
 	{
-		char *c1 = (char*)s1;
-		char *c2 = (char*)s2;
+		c1 = (char*)s1;
+		c2 = (char*)s2;
 		while (--n)
-			*c1++ = *c2++;;
+			*c1++ = *c2++;
 		*c1 = *c2;
 	}
-	return s1;
+	return (s1);
 }
-
-

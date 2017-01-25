@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dlemp <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/18 12:55:06 by dlemp             #+#    #+#             */
+/*   Updated: 2017/01/18 14:42:27 by dlemp            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i = 0;
+	int i;
+
+	i = 0;
 	if (len > 0)
 	{
 		if (dst >= src)
@@ -24,6 +38,5 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 			}
 		}
 	}
-	return dst;
-} 
-
+	return (dst);
+}
