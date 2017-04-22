@@ -1,9 +1,9 @@
 NAME = lin_reg
 CFLAGS += -Wall -Wextra -Werror
 CC = gcc
-SRC += ft_linear_regression.c read_utils.c
+SRC += ft_linear_regression.c
 HEADER = linReg.h
-OBJ = $(SRC: .c = .o)
+OBJ = $(SRC: .c=.o)
 
 all: $(NAME)
 %.o : %.c

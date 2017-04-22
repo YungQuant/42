@@ -32,6 +32,24 @@ lps *optimize(struct learning_parameter_struct *l_p_s, double *X, double *Y)
     return l_p_s;
 }
 
+double *file2array(FILE *fp)
+{
+    int len = 0;
+    double curr;
+    while(fscanf(fp, "%lf", &curr) != EOF)
+    {
+        len++;
+    }
+    double *array = malloc(sizeof(double) * len);
+    len = 0;
+    while(fscanf(fp, "%lf", &curr) != EOF)
+    {
+        array[len] = curr;
+        len++;
+    }
+    return array;
+}
+
 double *format_y(double *dataset)
 {
     int len = 0;
@@ -71,7 +89,7 @@ int main(int argc, char **argv)
         FILE *fp = fdopen(fd, "r");
         printf("\n Training / Hyper-Parameter Optimization Mode \n");
         printf("Setting Learning Rate: %lf", strtod(argv[3], NULL));
-        double *dataset = ft_file2array(fp);
+        double *dataset = file2array(fp);
         X = dataset;
         Y = format_y(dataset);
         l_p_s = optimize(l_p_s, X, Y);

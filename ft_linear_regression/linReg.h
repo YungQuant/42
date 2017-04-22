@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
-#include "read_utils.c"
 #include <fcntl.h>
 
 typedef struct learning_parameter_struct
