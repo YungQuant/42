@@ -1,26 +1,14 @@
-NAME = lin_reg
+NAME = ftLinearRegression.out
 CFLAGS += -Wall -Wextra -Werror
 CC = gcc
 SRC += ft_linear_regression.c
 HEADER = linReg.h
 OBJ = $(SRC: .c=.o)
 
-all: $(NAME)
-%.o : %.c
-	$(CC) $(CFLAGS) -c $(SRC)
+%.o : %.c $(HEADER)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
+all: $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
 	echo "Built ft_linear_regression"
 
-clean:
-	rm -f $(OBJ)
-	echo "Cleaned object files"
-
-fclean: clean
-	rm -f $(NAME)
-	echo "Cleaned compiled files"
-
-re: fclean all
-	make

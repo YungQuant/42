@@ -68,8 +68,14 @@ double *format_y(double *dataset)
 
 int main(int argc, char **argv)
 {
+    printf("ft_linear_regression by dlemp aka yungquant\n");
     double *X; double *Y;
-    lps *l_p_s = (lps*)malloc(sizeof(lps));
+    lps *l_p_s;
+    if(!(l_p_s = (lps *)malloc(sizeof(lps))))
+    {
+        printf("learning_parameter_struct malloc failure");
+        return 0;
+    }
     l_p_s->theta1 = 0;
     l_p_s->theta2 = 0;
     if(strncmp(argv[1], "-p", 2) == 0)
@@ -85,9 +91,9 @@ int main(int argc, char **argv)
     }
     if(strncmp(argv[1], "-t", 2) == 0)
     {
+	    printf("\n Training / Hyper-Parameter Optimization Mode \n");
         int fd = open(argv[2], O_RDONLY);
         FILE *fp = fdopen(fd, "r");
-        printf("\n Training / Hyper-Parameter Optimization Mode \n");
         printf("Setting Learning Rate: %lf", strtod(argv[3], NULL));
         double *dataset = file2array(fp);
         X = dataset;
