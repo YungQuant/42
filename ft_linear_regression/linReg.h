@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
 typedef struct learning_parameter_struct
 {
@@ -13,6 +14,8 @@ typedef struct learning_parameter_struct
     double learning_rate;
     double best_theta1;
     double best_theta2;
+    double tot_error;
+    int    x_length;
 }                   lps;
 
 
