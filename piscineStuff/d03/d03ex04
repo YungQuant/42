@@ -1,8 +1,0 @@
-void ft_ultimate_div_mod(int *a, int *b)
-{
-	a2 = *a;
-	b2 = *b;
-	a2 / b2 = *a;
-	a2 % b2 = *b;
-
-}
