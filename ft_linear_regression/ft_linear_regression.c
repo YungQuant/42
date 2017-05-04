@@ -9,7 +9,6 @@ lps *optimize(lps *l_p_s, double *X, double *Y)
 {
     sleep(1);
     printf("Fitting optimal theta1 & theta2 using (OLS?) linear regression\n\n");
-    sleep(5);
     int i = 0;
     double tmp_theta1, tmp_theta2, diff, best_diff, predict;
     best_diff = 100;
