@@ -27,7 +27,7 @@ all: libft $(NAME)
 libft :
 	make -C $(LIB_PATH)
 
-$(NAME): $(OBJ)
+$(NAME): libft $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIB) $(INC) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
@@ -35,10 +35,12 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean :
+	@cd ./libft/ && rm *.o ; cd ..
 	@$(RM) -v $(OBJ)
 	@$(RM) -rv $(OBJ_PATH)
 
 fclean : clean
+	@cd ./libft/ && rm libft.a ; cd ..
 	@$(RM) -v $(NAME)
 
 re: fclean all
