@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 size_t	ft_strlen(const char *str);
+void    *ft_realloc(void *ptr, size_t size)
 void	*ft_memalloc(size_t size);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	ft_memdel(void **ap);
